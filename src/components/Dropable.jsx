@@ -1,4 +1,4 @@
-import { Button, Card, Flex, Input } from 'antd'
+import { Card } from 'antd'
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import { useCustomForm } from '../context/CustomFormContext'
@@ -23,7 +23,7 @@ const Dropable = ({ allowedDropEffect }) => {
     )
     return (
         <Card className='card'>
-            <div className={`dropable-area`} ref={drop}>
+            <div className={`dropable-area `} >
                 <div className='placeholder'>Drag items here</div>
             </div>
         </Card>

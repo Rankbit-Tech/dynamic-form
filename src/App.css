@@ -18,13 +18,22 @@ body {
   padding: 16px;
   background-color: #f8f8f8;
   border-radius: 8px;
-  min-height: 200px;
+  min-height: 500px;
   min-width: 400px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease;
+}
+
+.dragStyle {
+  background-color: #1F2937;
+  color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  padding: 6px;
 }
 
 .dropable-area.dragging-over {

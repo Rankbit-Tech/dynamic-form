@@ -3,18 +3,26 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 
 import './App.css';
 import FormProvider from './context/CustomFormContext';
+import Dropable from './components/Dropable';
+import SideElements from './components/sideElements';
 
 function App() {
   return (
     <FormProvider>
       <DndProvider backend={HTML5Backend}>
-        <div className='w-full h-screen flex'>
+        <div className='w-full h-screen flex '>
           <div className='h-full  w-full flex-1'>
             <div className='w-full bg-white h-10'>
               <h1>Dropable area</h1>
             </div>
+            <div><Dropable />
+              <h1>hello</h1>
+            </div>
           </div>
-          <div className='min-w-[350px] border-l-[1px] border-gray-300 bg-white p-5'>Dragable area</div>
+          <div className='min-w-[350px] border-l-[1px] border-gray-300 bg-white p-5'>
+            <h1 className='dragStyle'>Dragable Area</h1>
+            <SideElements />
+          </div>
         </div>
       </DndProvider>
     </FormProvider>
