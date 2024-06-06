@@ -24,10 +24,7 @@ const Dropable = ({ allowedDropEffect }) => {
     return (
         <Card className='card'>
             <div className={`dropable-area`} ref={drop}>
-               <div className='placeholder'>Drag items here</div>
-            </div>
-            <div>
-                <Button type='primary' onClick={saveForm}>Save Form</Button>
+                <div className='placeholder'>Drag items here</div>
             </div>
         </Card>
     )
