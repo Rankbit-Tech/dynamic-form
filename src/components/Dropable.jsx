@@ -24,23 +24,7 @@ const Dropable = ({ allowedDropEffect }) => {
     return (
         <Card className='card'>
             <div className={`dropable-area`} ref={drop}>
-                {
-                    fields.length ?
-                        <Flex vertical gap={2}>
-                            {
-                                fields.map((input, index) => {
-                                    return (
-                                        <Flex gap={1}>
-                                            <Input type={input.type} />
-                                            <Input id={index} value={input.label || ''} onChange={onChangeLable} type="text" placeholder='Label' />
-                                            <Input id={index} value={input.name || ''} onChange={onChangeName} type="text" placeholder='Name' />
-
-                                        </Flex>
-                                    )
-                                })
-                            }
-                        </Flex>
-                        : <div className='placeholder'>Drag items here</div>}
+               <div className='placeholder'>Drag items here</div>
             </div>
             <div>
                 <Button type='primary' onClick={saveForm}>Save Form</Button>

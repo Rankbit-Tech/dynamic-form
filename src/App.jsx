@@ -43,45 +43,7 @@ function App() {
   return (
     <FormProvider>
       <DndProvider backend={HTML5Backend}>
-        <Flex gap={4}>
-          {view == "BUILDER" ? <Dropable allowedDropEffect="any" /> : (
-            <Card className='card'>
-              <Form
-                // form={form}
-                onFinish={handleFinish}
-                layout='vertical'
-              >
-
-                {getFields()?.map(input => {
-                  return (
-                    <Form.Item name={input.name} label={input.label} key={input.id}>
-                      <Input type={input.type} placeholder={input.label} />
-                    </Form.Item>
-                  )
-                })}
-
-                <Form.Item>
-                  <Button htmlType="submit" type="primary">Submit</Button>
-                </Form.Item>
-
-              </Form>
-
-            </Card>
-          )}
-
-          <Card className='drawer'>
-            {inputTypes.map((item) => {
-              const id = nanoid()
-              item.id = id
-              return (
-                <Box name="input" config={item} key={id} content={item.content} />
-              )
-            })}
-
-            <Button type='primary' onClick={toggleView}>Toggle View</Button>
-
-          </Card>
-        </Flex>
+        <h1>Hello</h1>
       </DndProvider>
     </FormProvider>
   );

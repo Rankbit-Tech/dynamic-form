@@ -32,6 +32,11 @@ const FormProvider = ({ children }) => {
 
 
     const saveForm = () => {
+        const existingForm = localStorage.getItem("form")
+        if(existingForm){
+            const oldData = JSON.parse(existingForm)
+            
+        }
         localStorage.setItem("form", JSON.stringify(fields))
     }
 
