@@ -10,15 +10,24 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.1.0",
     "antd": "^5.18.0",
+    "clsx": "^2.1.1",
+    "immer": "^10.1.1",
     "lucide-react": "^0.383.0",
     "nanoid": "^5.0.7",
     "react": "^18.2.0",
+<<<<<<< HEAD
     "react-beautiful-dnd": "^13.1.1",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.23.1"
+=======
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.3.0",
+    "zustand": "^4.5.2"
+>>>>>>> d727ca0932517ec9f1f62afa772546ea0824c134
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -1,8 +1,26 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## What we have to build
 
-Currently, two official plugins are available:
+- Routing for home page and builder page.
+- `/` for home and `/builder/:id`. every form has unique ID.
+- Create Droppable area where we can drop input types.
+- Every dropped input will be stored in state with schema.
+- Give options to config input with lable,helperText (Error) and validation.
+- It should be included TextFields, CheckBox, Radio and select inputs.
+- At the home page give button to create new form. and also list existing forms. (we can also generate link of forms to fill and store every response of perticular form).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## input schema
+
+```javascript
+{
+    id:123,
+    type:"TextField",
+    extraAttributes:{
+        label,
+        helperText,
+        required,
+        placeholder
+    }
+}
+
+```
