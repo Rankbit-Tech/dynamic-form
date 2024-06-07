@@ -24,3 +24,33 @@
 }
 
 ```
+
+```js
+[
+    {
+        type:"section",
+        children:[
+            {
+                type:field,
+                id,
+                extraAttributes:{
+                    label,
+                    helperText,
+                    required,
+                    placeholder
+                }
+            }
+        ]
+    },
+    {
+                type:field,
+                id,
+                extraAttributes:{
+                    label,
+                    helperText,
+                    required,
+                    placeholder
+                }
+            }
+]
+```

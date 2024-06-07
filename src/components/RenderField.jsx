@@ -4,8 +4,6 @@ import Section from './Section'
 import TextInput from './Input'
 
 const RenderField = ({ field }) => {
-
-    console.log(field.type)
     const renderComponents = (input) => {
         const { type } = input
 

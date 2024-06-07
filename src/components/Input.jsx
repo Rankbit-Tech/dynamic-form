@@ -13,10 +13,10 @@ const TextInput = ({ input }) => {
     }
 
     return (
-        <div onClick={handleSelected} className='bg-gray-200 px-2 my-2 rounded cursor-pointer hover:bg-gray-300'>
-            <label className='text-muted text-sm'>{extraAttributes.label || "No label"}</label>
+        <div onClick={handleSelected} className='bg-gray-200 px-2 py-2 my-2 rounded cursor-pointer hover:bg-gray-300'>
+            <label className='text-muted text-sm'>{extraAttributes.label || ""}</label>
             <Input placeholder={extraAttributes.placeholder} />
-            <span className='text-muted text-xs  text-red-500'>{extraAttributes.helperText || "No helper text"} </span>
+            <span className='text-muted text-xs  text-red-500'>{extraAttributes.helperText || ""} </span>
         </div>
     )
 }

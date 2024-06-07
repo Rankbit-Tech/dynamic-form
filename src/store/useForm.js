@@ -19,10 +19,16 @@ const useForm = create(
             },
             updateAttributes: (id, value, key) => {
                 set(state => {
-                    console.log({ id, value, key })
                     const index = state.fields.findIndex(field => field.id == id)
                     state.fields[index].extraAttributes[key] = value
                 })
+            },
+            updateSectionName: (id, value) => {
+                set(state => {
+                    const index = state.fields.findIndex(section => section.id == id)
+                    state.fields[index].title = value
+                })
+
             }
         })),
     ),

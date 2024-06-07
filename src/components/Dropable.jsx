@@ -6,7 +6,7 @@ import RenderField from './RenderField';
 
 const Dropable = () => {
 
-    const { fields } = useForm(state => state)
+    const { fields, sections } = useForm(state => state)
 
     const { isOver, setNodeRef } = useDroppable({
         id: 'droppable',
@@ -16,15 +16,15 @@ const Dropable = () => {
     });
 
     return (
-        <div className='flex justify-center w-full'>
-            <div ref={setNodeRef} className={cn('dropable-area w-1/2 h-full', {
+        <div className='flex justify-center w-[90%] h-[90%] lg:h-[90%] lg:w-[90%]'>
+            <div ref={setNodeRef} className={cn('dropable-area w-[90%] h-full', {
                 'bg-gray-200': isOver
             })}>
                 {
                     fields.length ? (
                         <div>
                             {fields.map(field => {
-                                return (<RenderField key={field.type} field={field} />)
+                                return (!field.sectionId ? <RenderField key={field.type} field={field} /> : null)
                             })}
                         </div>
                     ) : (<div className='placeholder flex justify-center items-center'>Drag items here</div>)

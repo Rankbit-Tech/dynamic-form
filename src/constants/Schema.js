@@ -17,11 +17,5 @@ export const inputSchema = [
         type: inputType.SECTION,
         title: "Section",
         icon: "S",
-        extraAttributes: {
-            label: '',
-            helperText: '',
-            required: false,
-            placeholder: ''
-        }
     }
 ]
