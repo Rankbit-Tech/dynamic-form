@@ -1,32 +1,37 @@
-import { Card } from 'antd'
 import React from 'react'
-import { useDrop } from 'react-dnd'
-import { useCustomForm } from '../context/CustomFormContext'
+import { useDroppable } from '@dnd-kit/core';
+import useForm from '../store/useForm';
+import { cn } from '../utils';
+import RenderField from './RenderField';
 
-const Dropable = ({ allowedDropEffect }) => {
+const Dropable = () => {
 
-    const { fields, onChangeLable, saveForm, onChangeName } = useCustomForm()
+    const { fields } = useForm(state => state)
 
-    const [{ canDrop, isOver }, drop] = useDrop(
-        () => ({
-            accept: "box",
-            drop: () => ({
-                name: `${allowedDropEffect} Dustbin`,
-                allowedDropEffect,
-            }),
-            collect: (monitor) => ({
-                isOver: monitor.isOver(),
-                canDrop: monitor.canDrop(),
-            }),
-        }),
-        [allowedDropEffect],
-    )
+    const { isOver, setNodeRef } = useDroppable({
+        id: 'droppable',
+        data: {
+            type: "TextFields"
+        }
+    });
+
     return (
-        <Card className='card'>
-            <div className={`dropable-area `} >
-                <div className='placeholder'>Drag items here</div>
+        <div className='flex justify-center w-full'>
+            <div ref={setNodeRef} className={cn('dropable-area w-1/2 h-full', {
+                'bg-gray-200': isOver
+            })}>
+                {
+                    fields.length ? (
+                        <div>
+                            {fields.map(field => {
+                                return (<RenderField key={field.type} field={field} />)
+                            })}
+                        </div>
+                    ) : (<div className='placeholder flex justify-center items-center'>Drag items here</div>)
+                }
+
             </div>
-        </Card>
+        </div>
     )
 }
 
