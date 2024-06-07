@@ -1,5 +1,5 @@
 {
-  "name": "custom-form",
+  "name": "dynamic-form",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -21,8 +21,7 @@
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.23.1"
-    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1",
     "tailwind-merge": "^2.3.0",
     "zustand": "^4.5.2"
   },
