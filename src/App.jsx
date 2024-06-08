@@ -1,30 +1,21 @@
 import { DndContext } from '@dnd-kit/core';
-import FormProvider from './context/CustomFormContext';
 import Dropable from './components/Dropable';
 import SideElements from './components/SideElements';
 import './App.css';
 import useForm from './store/useForm';
 import PropertySettings from './components/PropertySettings';
-import { inputType } from './constants';
 import { Button } from 'antd';
 import { transformData } from './utils/transform';
 import { Eye, Save } from 'lucide-react';
+import useDrag from './hooks/useDrag';
+
 
 function App() {
-  const { selectedElement, setFields, setSelected, fields } = useForm(state => state)
+  const { selectedElement, setSelected, fields } = useForm(state => state)
 
-  const onHandleDragEnd = (event) => {
-    const { active, over } = event;
-    if (over && over.id === 'droppable') {
-      setFields(active.data.current)
-    }
-    if (over && over.id.startsWith('section-')) {
-      active.data.current.sectionId = over.data.current.id
-      setFields(active.data.current)
-    }
+  const { onHandleDragEnd } = useDrag()
 
 
-  }
   const handelSelected = (e) => {
     e.stopPropagation()
     setSelected(null)

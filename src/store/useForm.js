@@ -7,9 +7,9 @@ const useForm = create(
         immer(set => ({
             fields: [],
             selectedElement: null,
-            setFields: data => {
+            setFields: (updateFunc) => {
                 set(state => {
-                    state.fields.push(data)
+                    state.fields = updateFunc(state.fields);
                 });
             },
             setSelected: data => {
@@ -19,14 +19,14 @@ const useForm = create(
             },
             updateAttributes: (id, value, key) => {
                 set(state => {
-                    const index = state.fields.findIndex(field => field.id == id)
-                    state.fields[index].extraAttributes[key] = value
+                    const index = state.fields.findIndex(field => field.id == id);
+                    state.fields[index].extraAttributes[key] = value;
                 })
             },
             updateSectionName: (id, value) => {
                 set(state => {
-                    const index = state.fields.findIndex(section => section.id == id)
-                    state.fields[index].title = value
+                    const index = state.fields.findIndex(section => section.id == id);
+                    state.fields[index].title = value;
                 })
 
             }
