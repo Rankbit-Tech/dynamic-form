@@ -1,4 +1,4 @@
-import { DndContext } from '@dnd-kit/core';
+import { DndContext, MouseSensor, TouchSensor, useSensor, useSensors } from '@dnd-kit/core';
 import Dropable from './components/Dropable';
 import SideElements from './components/SideElements';
 import './App.css';
@@ -23,11 +23,24 @@ function App() {
   }
 
   const saveForm = () => {
-    const result = transformData(fields)
+    transformData(fields)
   }
+  const mouseSensor = useSensor(MouseSensor, {
+    activationConstraint: {
+      distance: 10,
+    },
+  });
+  const touchSensor = useSensor(TouchSensor, {
+    activationConstraint: {
+      delay: 250,
+      tolerance: 5,
+    },
+  });
+
+  const sensors = useSensors(mouseSensor, touchSensor)
 
   return (
-    <DndContext onDragEnd={onHandleDragEnd}>
+    <DndContext onDragEnd={onHandleDragEnd} sensors={sensors}>
 
 
       <div className='w-full h-[calc(100vh-70px)] flex'>
