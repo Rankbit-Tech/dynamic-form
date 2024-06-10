@@ -1,11 +1,18 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
+import { transformData } from '../utils/transform';
 
 const useForm = create(
     devtools(
-        immer(set => ({
+        immer((set, get) => ({
             fields: [],
+            isPreview: false,
+            setPreview: (data) => {
+                set(state => {
+                    state.isPreview = data
+                })
+            },
             selectedElement: null,
             setFields: (updateFunc) => {
                 set(state => {
@@ -29,6 +36,11 @@ const useForm = create(
                     state.fields[index].title = value;
                 })
 
+            },
+            formData: () => {
+                get(state => {
+                    return transformData(state.fields)
+                })
             }
         })),
     ),

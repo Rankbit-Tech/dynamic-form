@@ -31,7 +31,6 @@ const PropertySettings = () => {
 
     const handleChange = (e) => {
         const { value, name } = e.target
-        console.log({ value })
         setValues(prev => {
             return {
                 ...prev,

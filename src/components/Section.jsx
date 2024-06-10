@@ -1,9 +1,8 @@
+import React from 'react';
 import { useDroppable } from '@dnd-kit/core';
 import { Card, Input } from 'antd';
-import React from 'react';
 import { inputType } from '../constants';
 import useForm from '../store/useForm';
-import RenderField from './RenderField';
 import { cn } from '../utils';
 import { useMemo } from 'react';
 import { SortableContext } from '@dnd-kit/sortable';
@@ -19,6 +18,7 @@ const Section = ({ input }) => {
             type: inputType.SECTION,
         },
     });
+
 
     const filteredFields = useMemo(() => {
         return fields.filter(field => field.sectionId === input.id);

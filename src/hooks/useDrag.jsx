@@ -21,7 +21,6 @@ const useDrag = () => {
         setFields((fields) => {
             const oldIndex = fields.findIndex(field => field.id === active.id);
 
-            // Determine the target index based on the drop position
             let targetIndex;
             let targetSectionId = overData.sectionId || null;
 
@@ -45,13 +44,10 @@ const useDrag = () => {
                 targetSectionId = null;
             }
 
-            // Handle insertion at the calculated target index
             if (oldIndex === -1) {
-                // Item does not exist in fields, add it at the new index
                 const newItem = { ...activeData, sectionId: targetSectionId };
                 return insertAtIndex(fields, newItem, targetIndex);
             } else {
-                // Item exists, move it to the new index
                 const updatedFields = [...fields];
                 const [movedItem] = updatedFields.splice(oldIndex, 1);
                 movedItem.sectionId = targetSectionId;

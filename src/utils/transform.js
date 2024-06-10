@@ -8,6 +8,7 @@ export const transformData = (data) => {
                 return {
                     id: item.id,
                     type: inputType.SECTION,
+                    title: item.title,
                     children: findChildren(item.id)
                 };
             case inputType.TEXTFIELD:
